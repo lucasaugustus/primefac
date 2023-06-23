@@ -218,10 +218,10 @@ Note that primes in the ordinary output lines are listed in the order in which t
 
 The ``-v`` and ``-s`` flags may be combined into a single flag in either order --- i.e., into ``-vs`` or ``-sv``.
 
-The ``-m=`` flag controls the functions used during the ``multifactor`` phase.  The options are ``prb``, ``p-1``, ``p+1``, ``ecm``, and ``siqs``, representing Pollard's rho, Pollard's *p*\ -1, Williams' *p*\ +1, the elliptic curve method, and the self-initializing quadratic sieve, respectively.  The options must be separated by commas.  The options can be repeated: if ``prb`` is listed twice, for example, then ``multifactor`` will run two instances of ``pollardrho_brent`` simultaneously.  In the case of ``prb`` and ``ecm``, this decreases the expectation value of the time to find a factor, whereas the other three algorithms (*p*\ -1, *p*\ +1, and MPQS) have no randomized component so that running duplicate instances of these three algorithms confers no benefit.  We therefore ignore repeated listings of the latter three methods: for example, calling
+The ``-m=`` flag controls the functions used during the ``multifactor`` phase.  The options are ``prb``, ``p-1``, ``p+1``, ``ecm``, and ``siqs``, representing Pollard's rho, Pollard's *p*\ -1, Williams' *p*\ +1, the elliptic curve method, and the self-initializing quadratic sieve, respectively.  The options must be separated by commas.  The options can be repeated: if ``prb`` is listed twice, for example, then ``multifactor`` will run two instances of ``pollardrho_brent`` simultaneously.  In the case of ``prb`` and ``ecm``, this decreases the expectation value of the time to find a factor, whereas the other three algorithms (*p*\ -1, *p*\ +1, and SIQS) have no randomized component so that running duplicate instances of these three algorithms confers no benefit.  We therefore ignore repeated listings of the latter three methods: for example, calling
 
 .. code:: sh
 
-    python3 -m primefac -m=prb,prb,ecm,ecm,ecm,mpqs,mpqs 38 ! 1 +
+    python3 -m primefac -m=prb,prb,ecm,ecm,ecm,siqs,siqs 38 ! 1 +
 
 will run, during the multifactor phase, two instances of Pollard's rho, three instances of the elliptic curve method, and one instance of the SIQS.  Invoking more methods than you have cores available is unlikely to confer any benefit.
