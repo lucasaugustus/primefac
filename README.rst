@@ -224,4 +224,4 @@ The ``-m=`` flag controls the functions used during the ``multifactor`` phase.  
 
     python3 -m primefac -m=prb,prb,ecm,ecm,ecm,mpqs,mpqs 38 ! 1 +
 
-will run during the multifactor phase two instances of Pollard's rho, three instances of the elliptic curve method, and one instance of the MQPS.  Invoking more methods than you have cores available is unlikely to confer any benefit.
+will run, during the multifactor phase, two instances of Pollard's rho, three instances of the elliptic curve method, and one instance of the SIPS.  Invoking more methods than you have cores available is unlikely to confer any benefit.
